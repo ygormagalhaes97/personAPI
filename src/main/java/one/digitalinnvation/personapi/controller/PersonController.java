@@ -1,6 +1,6 @@
 package one.digitalinnvation.personapi.controller;
 
-import lombok.SneakyThrows;
+import lombok.AllArgsConstructor;
 import one.digitalinnvation.personapi.dto.request.PersonDTO;
 import one.digitalinnvation.personapi.dto.response.MessageResponseDTO;
 import one.digitalinnvation.personapi.exception.PersonNotFoundException;
@@ -14,14 +14,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/people")
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PersonController {
 
     private final PersonService personService;
-
-    @Autowired
-    public PersonController(PersonService personService){
-        this.personService = personService;
-    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
